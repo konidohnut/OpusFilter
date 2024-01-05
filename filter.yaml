@@ -1,0 +1,16 @@
+common:
+  output_directory: "/pythonProject/dataset/"
+steps:
+  - type: filter
+    parameters:
+      inputs: [ WikiMatrix.en-ru.en, WikiMatrix.en-ru.ru ]
+      outputs: [ WikiMatrix-filteredDROP.en-ru.en, WikiMatrix-filteredDROP.en-ru.ru ]
+
+      filters:
+        - LengthFilter:
+            unit: word
+            min_length: 1
+            max_length: 10
+
+        - LongWordFilter:
+            threshold: 10
